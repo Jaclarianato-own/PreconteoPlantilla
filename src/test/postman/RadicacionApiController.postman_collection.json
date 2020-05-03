@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "b3859fe8-b2b8-4a4e-85f5-cefcf2da074e",
+		"name": "RadicacionApiController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ejemplo (id valido)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ1c2VyIjoiZ3J1cG9hc2QiLCAicm9sZXMiOiBbInVzZXIiXX0=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/aquarius/api/v1/radicaciones?id=123456",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"aquarius",
+						"api",
+						"v1",
+						"radicaciones"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejemplo (id valido, sin auth)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/aquarius/api/v1/radicaciones?id=123456",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"aquarius",
+						"api",
+						"v1",
+						"radicaciones"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejemplo (id no valido)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ1c2VyIjoiZ3J1cG9hc2QiLCAicm9sZXMiOiBbInVzZXIiXX0=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/aquarius/api/v1/radicaciones?id=error",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"aquarius",
+						"api",
+						"v1",
+						"radicaciones"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "error"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejemplo (excepcion)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ1c2VyIjoiZ3J1cG9hc2QiLCAicm9sZXMiOiBbInVzZXIiXX0=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/aquarius/api/v1/radicaciones?id=exception",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"aquarius",
+						"api",
+						"v1",
+						"radicaciones"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "exception"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
