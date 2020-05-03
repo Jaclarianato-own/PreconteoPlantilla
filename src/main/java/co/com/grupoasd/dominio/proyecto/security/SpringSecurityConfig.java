@@ -45,29 +45,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html"
         };
 
-    //private final JwtTokenProvider jwtTokenProvider;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         // Disable CSRF (cross site request forgery)
         http.csrf().disable();
-
         // No session will be created or used by spring security
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        
-        // INICIO NUEVO
-        http.addFilterAfter(new AuthorizationFilter(activeProfile), UsernamePasswordAuthenticationFilter.class);
-        // FIN NUEVO
-        
-        
+        http.addFilterAfter(new AuthorizationFilter(activeProfile), UsernamePasswordAuthenticationFilter.class);        
         // Entry points
         http.authorizeRequests().antMatchers(ENDPOINTS_NO_AUTH).permitAll()
         .anyRequest().authenticated();
-        //http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
-
-        // Optional, if you want to test the API from a browser
-        // http.httpBasic();
     }
 
     @Override
