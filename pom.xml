@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>co.com.grupoasd.dominio</groupId>
-	<artifactId>dominio-proyecto-services</artifactId>
+	<artifactId>dominio-proyecto-service</artifactId>
 	<version>0.0.0-SNAPSHOT</version>
-	<name>dominio-proyecto-services</name>
+	<name>dominio-proyecto-service</name>
 	<description>Servicios de XXX</description>
 
 	<properties>

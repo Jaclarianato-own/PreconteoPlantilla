@@ -11,7 +11,7 @@
 * propiedad intelectual. Su uso no autorizado dara lugar a las sanciones
 * previstas en la Ley.
 */
-package co.com.grupoasd.operation.aquarius.service.impl;
+package co.com.grupoasd.dominio.proyecto.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -29,7 +29,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import co.com.grupoasd.dominio.proyecto.message.RadicacionEjemploResponse;
 import co.com.grupoasd.dominio.proyecto.security.AuthenticationHandler;
 import co.com.grupoasd.dominio.proyecto.service.impl.RadicacionServiceImpl;
-import co.com.grupoasd.operation.aquarius.util.MockAuthentication;
+import co.com.grupoasd.dominio.proyecto.util.MockAuthentication;
 
 /**
  * Prueba unitaria RadicacionServiceImpl.

@@ -11,7 +11,7 @@
 * propiedad intelectual. Su uso no autorizado dara lugar a las sanciones
 * previstas en la Ley.
 */
-package co.com.grupoasd.operation.aquarius.util;
+package co.com.grupoasd.dominio.proyecto.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
