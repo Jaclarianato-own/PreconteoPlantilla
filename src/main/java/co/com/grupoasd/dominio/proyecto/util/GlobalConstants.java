@@ -50,5 +50,5 @@ public final class GlobalConstants {
      */
     public static final String EXCEPTION_MESSAGE = "Se ha presentado un error interno. "
             + "Por favor intente mas tarde. Si el error persiste, por favor informe del error "
-            + "utilizando el valor de ErrorCode";
+            + "utilizando el valor de errorCode";
 }

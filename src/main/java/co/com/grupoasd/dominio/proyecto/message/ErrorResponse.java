@@ -24,7 +24,7 @@ public class ErrorResponse {
     /**
      * Codigo de error.
      */
-    private String errorCode;
+    private String errorcode;
     /**
      * Timestamp del error.
      */

@@ -29,15 +29,30 @@ import co.com.grupoasd.dominio.proyecto.message.ErrorResponse;
 public class RestResponseEntityExceptionHandlerTest {
 
     @Test
-    @DisplayName("Operacion de ejemplo con id valido.")
-    public void generalException() {
+    @DisplayName("Excepcion general con mensaje sin log de excepcion para modo produccion")
+    public void generalException1() {
         RestResponseEntityExceptionHandler response = new RestResponseEntityExceptionHandler();
+        response.showExceptions = false;
         Exception ex = new Exception("Excepcion general.");
         ResponseEntity<ErrorResponse> res = response.generalException(ex);
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, res.getStatusCode());
-        assertNotNull(res.getBody().getErrorCode());
-        assertTrue(!res.getBody().getErrorCode().isEmpty());
+        assertNotNull(res.getBody().getErrorcode());
+        assertTrue(!res.getBody().getErrorcode().isEmpty());
         // El mensaje de error debe ser diferente al de la excepcion
         assertNotEquals(ex.getMessage(), res.getBody().getMessage());
+    }
+    
+    @Test
+    @DisplayName("Excepcion general con mensaje con log de excepcion para modo desarrollo")
+    public void generalException2() {
+        RestResponseEntityExceptionHandler response = new RestResponseEntityExceptionHandler();
+        response.showExceptions = true;
+        Exception ex = new Exception("Excepcion general.");
+        ResponseEntity<ErrorResponse> res = response.generalException(ex);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, res.getStatusCode());
+        assertNotNull(res.getBody().getErrorcode());
+        assertTrue(!res.getBody().getErrorcode().isEmpty());
+        // El mensaje de error debe ser igual al de la excepcion
+        assertEquals(ex.getMessage(), res.getBody().getMessage());
     }
 }

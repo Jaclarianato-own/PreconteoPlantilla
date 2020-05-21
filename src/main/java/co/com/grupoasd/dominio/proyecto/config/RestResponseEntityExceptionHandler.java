@@ -15,6 +15,7 @@ package co.com.grupoasd.dominio.proyecto.config;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -36,6 +37,12 @@ import lombok.extern.slf4j.Slf4j;
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
     
     /**
+     * Indica si se deben mostrar las excepciones en las respuesta de error.
+     */
+    @Value("${app.api.showexceptions}")
+    boolean showExceptions;
+    
+    /**
      * Permite interceptar cualquier excepcion y generar un JSON con un codigo de error generado
      * el cual se puede buscar en el log para facilitar el soporte y un mensaje generico por seguridad.
      * @param e Exception
@@ -48,10 +55,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         String mensajeLog = String.format("%s - %s", errorCode, e.getMessage());
         log.error(mensajeLog, e);
         ErrorResponse error = new ErrorResponse();
-        error.setErrorCode(IdUtil.generate());
+        error.setErrorcode(IdUtil.generate());
         error.setTimestamp(new Date().toString());
-        error.setMessage(GlobalConstants.EXCEPTION_MESSAGE);
+        if (showExceptions) {
+            error.setMessage(e.getMessage());
+        } else {
+            error.setMessage(GlobalConstants.EXCEPTION_MESSAGE);
+        }
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-
     }
 }
