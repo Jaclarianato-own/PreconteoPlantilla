@@ -14,6 +14,7 @@
 package co.com.grupoasd.dominio.proyecto.security;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +33,11 @@ public class AuthenticationHandler {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Claims claims = new Claims();
         claims.setUser(auth.getName());
+        if (auth.getAuthorities() != null) {
+            for (GrantedAuthority authority: auth.getAuthorities()) {
+                claims.getRoles().add(authority.getAuthority());
+            }
+        }
         return claims;
     }
 }
