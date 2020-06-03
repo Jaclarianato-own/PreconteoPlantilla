@@ -42,7 +42,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] ENDPOINTS_NO_AUTH = new String[] {
             "/v2/api-docs", "/v2/api-docs/",
             "/swagger-resources/**/", "/swagger-resources/**",
-            "/swagger-ui.html"
+            "/swagger-ui.html", "/webjars/**"
         };
 
     @Override
