@@ -55,7 +55,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         String mensajeLog = String.format("%s - %s", errorCode, e.getMessage());
         log.error(mensajeLog, e);
         ErrorResponse error = new ErrorResponse();
-        error.setErrorcode(IdUtil.generate());
+        error.setErrorcode(errorCode);
         error.setTimestamp(new Date().toString());
         if (showExceptions) {
             error.setMessage(e.getMessage());
