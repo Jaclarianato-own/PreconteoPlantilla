@@ -42,7 +42,7 @@ También se pueden ejecutar las siguientes tareas de manera separada:
 
 ### Pruebas unitarias ###
 
-Las pruebas unitarias se encuentran en /src/test y deben ser realizadas con JUnit 5 y Mockito, los paquetes de cada prueba se deben llamar igual que el paquete donde se encuentra la clase a probar, el nombre de cada prueba debe finalizar con “Test” para que pueda ser ejecutada por JUnit. Es importante tener en cuenta que la inyección de dependencias de Spring Boot debe realizarse a través de constructores y no a través de la anotación @Autowired para que se puedan inyectar mocks en las pruebas unitarias, si estoy no se realiza, las objectos de tipo Mock no serán inyectadas y se generaran errores al ejecutar las pruebas unitarias.
+Las pruebas unitarias se encuentran en /src/test y deben ser realizadas con JUnit 5 y Mockito, los paquetes de cada prueba se deben llamar igual que el paquete donde se encuentra la clase a probar, el nombre de cada prueba debe finalizar con “Test” para que pueda ser ejecutada por JUnit. Es **importante** tener en cuenta que la inyección de dependencias de Spring Boot debe realizarse a través de constructores y no a través de la anotación @Autowired para que se puedan inyectar mocks en las pruebas unitarias, si estoy no se realiza, las objectos de tipo Mock no serán inyectadas y se generaran errores al ejecutar las pruebas unitarias.
 
 ### Verificación de código estático ###
 
