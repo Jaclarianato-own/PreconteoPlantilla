@@ -15,6 +15,7 @@ package co.com.grupoasd.dominio.proyecto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Clase de entrada para ejecutar el proyecto Spring Boot.
@@ -22,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Juan Carlos Castellanos <jccastellanos@grupoasd.com.co>
  */
 @SpringBootApplication
+@EnableScheduling
 public class MainApp {
 
     /**
